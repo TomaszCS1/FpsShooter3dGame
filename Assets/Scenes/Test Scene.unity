@@ -234,7 +234,6 @@ GameObject:
   - component: {fileID: 106289721}
   - component: {fileID: 106289720}
   - component: {fileID: 106289724}
-  - component: {fileID: 106289723}
   m_Layer: 8
   m_Name: Capsule
   m_TagString: Untagged
@@ -321,20 +320,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 106289718}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!136 &106289723
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 106289718}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &106289724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -347,9 +332,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e3e7a4696dcb7243b73878247eaad32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerMovement: {fileID: 1195383375}
   playerBody: {fileID: 106289719}
-  collider: {fileID: 106289723}
-  playerBody1: {fileID: 0}
+  collider: {fileID: 0}
 --- !u!1001 &233792350
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -601,8 +586,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1195383374}
   - component: {fileID: 1195383375}
-  - component: {fileID: 1195383376}
   - component: {fileID: 1195383377}
+  - component: {fileID: 1195383376}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -642,7 +627,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movementSpeed: 10
-  mouseSensitivity: 50
+  _movementSpeedNormal: 10
+  _movementSpeedCrouching: 5
+  mouseSensitivity: 290
 --- !u!54 &1195383376
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -671,7 +658,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72564920d21560b408bf89c27951acbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 1
+  mouseSensitivity: 300
   playerBody1: {fileID: 1195383374}
   rb: {fileID: 1195383376}
   cameraMain: {fileID: 1078121413}
@@ -767,6 +754,8 @@ MonoBehaviour:
   bulletSpawnPoint: {fileID: 22849041}
   hitPosition: {x: 0, y: 0, z: 0}
   shotHolePrefab: {fileID: 4576305222134421779, guid: 1aa378ecf3d9acc40b62cd9203c9dce7, type: 3}
+  spreadFactor: 3.1
+  shootingDirection: {x: 0, y: 0, z: 0}
 --- !u!1 &1327540420
 GameObject:
   m_ObjectHideFlags: 0

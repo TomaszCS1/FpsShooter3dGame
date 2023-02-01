@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody rb;
 
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,8 +32,8 @@ public class PlayerMovement : MonoBehaviour
        float moveZ = Input.GetAxis("Vertical");
        float moveX = Input.GetAxis("Horizontal");
 
-        Vector3 movement = new Vector3(moveX, 0f, moveZ).normalized * _movementSpeed * Time.deltaTime;
-        rb.MovePosition(transform.position + movement);
+        Vector3 movement = (transform.right *moveX + transform.forward * moveZ)/*.normalized*/ ;
+        rb.transform.position +=  (movement * _movementSpeed * Time.deltaTime);
 
               
     }

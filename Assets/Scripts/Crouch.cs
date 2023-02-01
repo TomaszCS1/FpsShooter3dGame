@@ -37,7 +37,6 @@ public class Crouch : MonoBehaviour
            
             collider.height=crouchHeigt;
             playerBody.localScale = new Vector3(1, crouchDeltaY,1);
-
             playerMovement._movementSpeed = playerMovement._movementSpeedCrouching;
             
         }
