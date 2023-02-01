@@ -8,13 +8,15 @@ public class Crouch : MonoBehaviour
     //referemce to Component: Character controller, enables to control parameter: height 
     //public CharacterController characterController;
     private float normalHeigt = 2.0f;
-    private float crouchHeigt = 0.6f;
+    private float crouchHeigt = 0.8f;
     float crouchDeltaY;
+   
 
     private Rigidbody rb;
     public Transform playerBody;
 
     public CapsuleCollider collider;
+    public Transform playerBody1;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +26,7 @@ public class Crouch : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         crouchDeltaY =  0.5f ;
         collider= GetComponent<CapsuleCollider>();
+        
     }
 
     // Update is called once per frame
