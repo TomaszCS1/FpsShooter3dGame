@@ -5,7 +5,10 @@ using UnityEngine.UIElements;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float _movementSpeed = 10f;
+    public float _movementSpeed;
+    public float _movementSpeedNormal = 10f;
+    public float _movementSpeedCrouching = 5f;
+
     public float mouseSensitivity = 5f;
 
     private Rigidbody rb;
