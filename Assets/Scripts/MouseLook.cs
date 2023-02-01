@@ -9,7 +9,7 @@ public class MouseLook : MonoBehaviour
     private float XRotation;
     private float YRotation;
 
-    private Transform playerBody1;
+    public Transform playerBody1;
     public Rigidbody rb;
 
     public Camera cameraMain;
@@ -18,8 +18,8 @@ public class MouseLook : MonoBehaviour
     private float risingSpeedmultiplier = 2.5f;
 
     [Range(1f, 10f)]
-    public float jumpVelocity = 3f;
-    
+    public float jumpVelocity = 10f;
+     
 
 
     // Start is called before the first frame update
@@ -34,7 +34,7 @@ public class MouseLook : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //JUMPING 
+        //jumping
         if (Input.GetKeyDown(KeyCode.Space)) 
         {
             jumpOnSpace();
@@ -49,7 +49,6 @@ public class MouseLook : MonoBehaviour
 
 
 
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
         //rotates camera around X axis (up and down)
@@ -58,20 +57,18 @@ public class MouseLook : MonoBehaviour
        
         cameraMain.transform.localRotation=Quaternion.Euler(XRotation, 0, 0);
 
+        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
 
         //rotates player around Y axis (sides)
         YRotation += mouseX;
-        rb.rotation = Quaternion.Euler(0, YRotation, 0 );
-
-
-
+        playerBody1.rotation = Quaternion.Euler(0, YRotation, 0 );
 
     }
 
 
     private void jumpOnSpace()
     {
-        if(rb.transform.position.y  < 5.0f)
+        if (rb.transform.position.y  < 5.0f)
         {
             rb.velocity += Vector3.up * jumpVelocity;
 
