@@ -12,9 +12,17 @@ public class Gun : MonoBehaviour
     public Vector3 hitPosition;
 
     public GameObject shotHolePrefab;
-    [Range(2f, 100f)]
-    public float spreadFactor = 1.40f;
-    public Vector3 shootingDirection ;
+    
+    public float spreadFactor= 0.02f;
+    public float spreadCrouching = 0.02f;
+    public float spreadNormal = 0.04f;
+
+
+
+    public Vector3 shootingDirection;
+    public Vector3 shootingOrigin;
+    float shootingDirectionX;
+    float shootingDirectionY;
 
     // Update is called once per frame
     void Update()
@@ -32,12 +40,15 @@ public class Gun : MonoBehaviour
         //Stores information about "what" was being hit by ray
         RaycastHit hit;
 
-        // ADDING SPRED TO SHOOTING AFTER SERIES
-        float randomSpread = Random.Range(-spreadFactor, spreadFactor);
-        shootingDirection += bulletSpawnPoint.transform.forward * randomSpread;
+        // ADDING SPRED TO SHOOTING 
 
+        shootingOrigin = bulletSpawnPoint.transform.position;
 
-        if (Physics.Raycast(bulletSpawnPoint.transform.position, shootingDirection, out hit/*, range*/));
+        shootingDirection = bulletSpawnPoint.transform.forward;
+        shootingDirection.x += Random.Range(-spreadFactor, spreadFactor);
+        shootingDirection.y += Random.Range(-spreadFactor, spreadFactor);
+
+        if (Physics.Raycast(shootingOrigin, shootingDirection, out hit/*, range*/));
         {
             if (hit.collider!= null)
             Debug.Log("Collision at: " + hit.point + " with object: " + hit.transform.name);
