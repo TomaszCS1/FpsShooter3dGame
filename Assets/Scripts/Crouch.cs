@@ -5,7 +5,7 @@ using UnityEngine;
 public class Crouch : MonoBehaviour
 {
 
-    //referemce to Component: Character controller, enables to control parameter: height 
+    //reference to Component: Character controller, enables to control parameter: height 
     //public CharacterController characterController;
     private float normalHeigt = 2.0f;
     private float crouchHeigt = 0.8f;
