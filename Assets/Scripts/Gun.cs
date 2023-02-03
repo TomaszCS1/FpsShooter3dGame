@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-    public GameSettingsDatabase GameSettingsDatabase;
+    public GameSettingsDatabase gameSettingsDatabase;
     public float damage;
     public float range;
 
@@ -36,14 +36,13 @@ public class Gun : MonoBehaviour
 
      void Shoot()
     {
-        range = GameSettingsDatabase.gunRange;
-        damage= GameSettingsDatabase.gunDamage;
+        range = gameSettingsDatabase.gunRange;
+        damage= gameSettingsDatabase.gunDamage;
 
         //Stores information about "what" was being hit by ray
         RaycastHit hit;
 
         // ADDING SPRED TO SHOOTING 
-
         shootingOrigin = bulletSpawnPoint.transform.position;
 
         shootingDirection = bulletSpawnPoint.transform.forward;

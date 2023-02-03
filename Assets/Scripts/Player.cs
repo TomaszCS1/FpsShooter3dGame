@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody rb;
 
-
+    public GameSettingsDatabase gameSettingsdatabase;
 
     // Start is called before the first frame update
     void Start()
@@ -27,18 +27,25 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
         // MOVING WSAD
-       float moveZ = Input.GetAxis("Vertical");
-       float moveX = Input.GetAxis("Horizontal");
+        float moveZ = Input.GetAxis("Vertical");
+        float moveX = Input.GetAxis("Horizontal");
 
-        Vector3 movement = (transform.right *moveX + transform.forward * moveZ)/*.normalized*/ ;
-        rb.transform.position +=  (movement * _movementSpeed * Time.deltaTime);
+        Vector3 movement = (transform.right * moveX + transform.forward * moveZ)/*.normalized*/ ;
+        rb.transform.position += (movement * _movementSpeed * Time.deltaTime);
 
-              
+
     }
 
-    
-   
-    
+    public void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.gameObject.layer == LayerMask.NameToLayer("bullet"))
+        {
+            gameSettingsdatabase.playerHealth -= 2;
+
+        }
+    }
+
 }
+

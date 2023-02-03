@@ -11,40 +11,19 @@ using UnityEngine;
 public class GameSettingsDatabase : ScriptableObject
 {
 
-    public int m_health = 0;
+    public float playerHealth;
+    public float enamyHealth;
 
-    public int healthO
-    {
-        get { return m_health; }
-        set
-        {
-            m_health = value;
-
-        }
-    }
-
-    public int m_points = 0;
-
-    public int points
-    {
-        get { return m_points; }
-        set
-        {
-            m_points = value;
-
-        }
-    }
-
-    public float health;
-    
-
-    public float gunDamage = 1f;
+    public float gunDamage;
     public float gunRange;
 
 
     void Start()
     {
-        ;
+        playerHealth = 100;
+        enamyHealth = 100;
+        gunDamage = 1f;
+        gunRange = 50f;
     }
 
 
