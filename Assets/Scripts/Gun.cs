@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-    public float damage = 1f;
-    public float range = 80f;
-    
+    public GameSettingsDatabase GameSettingsDatabase;
+    public float damage;
+    public float range;
+
     public Camera cam;
     public GameObject bulletSpawnPoint;
     public Vector3 hitPosition;
@@ -21,8 +22,7 @@ public class Gun : MonoBehaviour
 
     public Vector3 shootingDirection;
     public Vector3 shootingOrigin;
-    float shootingDirectionX;
-    float shootingDirectionY;
+   
 
     // Update is called once per frame
     void Update()
@@ -32,11 +32,13 @@ public class Gun : MonoBehaviour
             Shoot();
         }
 
-
     }
 
      void Shoot()
     {
+        range = GameSettingsDatabase.gunRange;
+        damage= GameSettingsDatabase.gunDamage;
+
         //Stores information about "what" was being hit by ray
         RaycastHit hit;
 
