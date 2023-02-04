@@ -11,21 +11,20 @@ using UnityEngine;
 public class GameSettingsDatabase : ScriptableObject
 {
 
-    public float playerHealth;
-    public float enamyHealth;
-
     public float gunDamage;
     public float gunRange;
 
 
-    void Start()
-    {
-        playerHealth = 100;
-        enamyHealth = 100;
-        gunDamage = 1f;
-        gunRange = 50f;
-    }
-
-
-
+    public void ResetData()
+    { }
+        public float playerHealth ;
+    public float enemyHealth ;
 }
+    
+
+
+    //Debug.Log("GSD playerHealth:  " + playerHealth + " GSD enemyHealth: " + enemyHealth);
+
+
+
+

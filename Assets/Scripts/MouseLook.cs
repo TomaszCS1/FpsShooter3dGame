@@ -18,7 +18,7 @@ public class MouseLook : MonoBehaviour
     private float risingSpeedmultiplier = 2.5f;
 
     [Range(1f, 10f)]
-    public float jumpVelocity = 10f;
+    public float jumpVelocity = 15f;
      
 
 
@@ -40,7 +40,7 @@ public class MouseLook : MonoBehaviour
             jumpOnSpace();
         }
 
-        //jumping mechanisc improved
+        //jumping mechanics improved
         if (rb.velocity.y < 0f) 
         { rb.velocity += Vector3.up * Physics.gravity.y * (fallingSpeedmultiplier - 1) * Time.deltaTime; }
 

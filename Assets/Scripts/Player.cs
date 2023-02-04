@@ -38,14 +38,7 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    public void OnCollisionEnter(Collision collision)
-    {
-        if (collision.collider.gameObject.layer == LayerMask.NameToLayer("bullet"))
-        {
-            gameSettingsdatabase.playerHealth -= 2;
-
-        }
-    }
+    
 
 }
 
