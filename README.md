@@ -1,1 +1,2 @@
 # FpsShooter3dGame
+This 3D first-person shooter game, developed in Unity, features mechanics for walking, jumping, and shooting. The game utilizes a singleton and scriptable object to provide added functionality, and includes the ability for bullets to leave holes in targets upon impact. This project is an opportunity to work with Unity's physics and graphics systems, and offers a solid foundation for further development and customization.
